@@ -10,8 +10,6 @@ class Alert extends BaseEvent {
 
   @Column(name = "severity")
   var severity: Int = _
-
-  override def toString = s"Meter($id, $label, $severity)"
 }
 
 object Alert {

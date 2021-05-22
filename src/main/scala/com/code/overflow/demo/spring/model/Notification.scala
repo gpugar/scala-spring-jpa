@@ -10,8 +10,6 @@ class Notification extends BaseEvent {
 
   @Column(name = "meter_value")
   var meterValue: Int = _
-
-  override def toString = s"Meter($id, $label, $meterValue)"
 }
 
 object Notification {

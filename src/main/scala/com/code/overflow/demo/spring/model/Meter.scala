@@ -11,8 +11,6 @@ class Meter extends BaseEntity {
 
   @Column(name = "label")
   var label: String = _
-
-  override def toString = s"Meter($id, $name, $label)"
 }
 
 object Meter {
