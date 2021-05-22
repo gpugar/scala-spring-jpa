@@ -15,8 +15,9 @@ class Notification extends BaseEvent {
 }
 
 object Notification {
-  def apply(label: String, meterValue: Int): Notification = {
+  def apply(meter: Meter, label: String, meterValue: Int): Notification = {
     val notification = new Notification
+    notification.meter = meter
     notification.label = label
     notification.meterValue = meterValue
     notification

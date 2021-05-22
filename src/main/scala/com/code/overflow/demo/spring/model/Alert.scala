@@ -15,8 +15,9 @@ class Alert extends BaseEvent {
 }
 
 object Alert {
-  def apply(label: String, severity: Int): Alert = {
+  def apply(meter: Meter, label: String, severity: Int): Alert = {
     val alert = new Alert
+    alert.meter = meter
     alert.label = label
     alert.severity = severity
     alert

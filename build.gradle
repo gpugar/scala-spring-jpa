@@ -23,6 +23,7 @@ repositories {
 dependencies {
 	implementation "org.scala-lang:scala-library:$scalaLibraryVersion"
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation "com.h2database:h2"
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation "junit:junit"
