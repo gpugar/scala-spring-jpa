@@ -1,5 +1,6 @@
 package com.code.overflow.demo.spring.model
 
+import java.util.UUID
 import javax.persistence.{Column, Entity, Table}
 
 @Entity
@@ -15,8 +16,16 @@ class Meter extends BaseEntity {
 }
 
 object Meter {
-  def apply(name: String, label: Option[String] = None): Meter = {
+  def apply(name: String, label: Option[String]): Meter = {
     val meter = new Meter
+    meter.name = name
+    meter.label = label.orNull
+    meter
+  }
+
+  def apply(id: UUID, name: String, label: Option[String]): Meter = {
+    val meter = new Meter
+    meter.id = id
     meter.name = name
     meter.label = label.orNull
     meter

@@ -5,11 +5,13 @@ import com.code.overflow.demo.spring.repository.NotificationRepository
 import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.data.jpa.repository.{JpaRepository, Query}
 import org.springframework.data.repository.query.Param
+import org.springframework.transaction.annotation.{Propagation, Transactional}
 
 import java.time.Instant
 import java.util.{UUID, List => JList}
 import scala.jdk.CollectionConverters._
 
+@Transactional(propagation = Propagation.MANDATORY)
 trait NotificationRepositoryImpl extends NotificationRepository with JpaRepository[Notification, UUID] {
 
   override def add(alert: Notification): Notification = save(alert)

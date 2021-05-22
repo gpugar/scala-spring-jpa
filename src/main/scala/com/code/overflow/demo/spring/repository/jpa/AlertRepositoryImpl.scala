@@ -5,11 +5,13 @@ import com.code.overflow.demo.spring.repository.AlertRepository
 import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.data.jpa.repository.{JpaRepository, Query}
 import org.springframework.data.repository.query.Param
+import org.springframework.transaction.annotation.{Propagation, Transactional}
 
 import java.time.Instant
 import java.util.{UUID, List => JList}
 import scala.jdk.CollectionConverters._
 
+@Transactional(propagation = Propagation.MANDATORY)
 trait AlertRepositoryImpl extends AlertRepository with JpaRepository[Alert, UUID] {
   override def add(alert: Alert): Alert = save(alert)
   override def update(alert: Alert): Alert = save(alert)

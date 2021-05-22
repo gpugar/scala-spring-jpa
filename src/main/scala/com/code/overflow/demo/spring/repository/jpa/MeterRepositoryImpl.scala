@@ -5,10 +5,12 @@ import com.code.overflow.demo.spring.repository.MeterRepository
 import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.data.jpa.repository.{JpaRepository, Query}
 import org.springframework.data.repository.query.Param
+import org.springframework.transaction.annotation.{Propagation, Transactional}
 
 import java.util.{Optional, UUID}
 import scala.jdk.OptionConverters._
 
+@Transactional(propagation = Propagation.MANDATORY)
 trait MeterRepositoryImpl extends MeterRepository with JpaRepository[Meter, UUID] {
   override def add(meter: Meter): Meter = save(meter)
   override def update(meter: Meter): Meter = save(meter)
