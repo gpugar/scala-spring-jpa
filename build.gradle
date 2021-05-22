@@ -1,7 +1,15 @@
+buildscript {
+	dependencies {
+		classpath "org.scala-lang:scala-library:$scalaLibraryVersion"
+		classpath "gradle.plugin.com.github.maiflai:gradle-scalatest:$scalaTestPluginVersion"
+	}
+}
 plugins {
-	id 'org.springframework.boot' version '2.5.0'
+	id 'org.springframework.boot' version "$springBootVersion"
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'scala'
+	id 'com.github.maiflai.scalatest' version "$scalaTestPluginVersion"
 }
 
 group = 'com.code.overflow'
@@ -13,8 +21,20 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.scala-lang:scala-library:$scalaLibraryVersion"
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "junit:junit"
+	testImplementation "org.mockito:mockito-core"
+	testImplementation "org.scalacheck:scalacheck_$scalaVersion:$scalacheckVersion"
+	testImplementation "org.scalatest:scalatest_$scalaVersion:$scalatestVersion"
+	testImplementation "org.scalatestplus:scalatestplus-mockito_$scalaVersion:$mockitoScalaVersion"
+	testImplementation "org.scalatestplus:junit-4-13_$scalaVersion:$scalatestJUnitVersion"
+
+	testImplementation "com.h2database:h2"
+
+	testRuntimeOnly "com.vladsch.flexmark:flexmark-profile-pegdown:$flexmarkVersion"
 }
 
 test {
