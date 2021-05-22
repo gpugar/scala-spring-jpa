@@ -1,11 +1,9 @@
 package com.code.overflow.demo.spring.model
 
 import org.hibernate.annotations.Type
-import org.springframework.data.annotation.CreatedDate
 
-import java.time.Instant
 import java.util.UUID
-import javax.persistence.{Column, GeneratedValue, Id, MappedSuperclass}
+import javax.persistence._
 
 @MappedSuperclass
 abstract class BaseEntity extends Serializable {
@@ -14,7 +12,4 @@ abstract class BaseEntity extends Serializable {
   @Column(name = "\"ID\"", length = 36)
   @Type(`type` = "uuid-char")
   var id: UUID = _
-
-  @CreatedDate
-  var createdDate: Instant = _
 }
