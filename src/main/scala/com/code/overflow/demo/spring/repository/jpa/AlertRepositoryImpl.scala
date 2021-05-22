@@ -14,7 +14,6 @@ import scala.jdk.CollectionConverters._
 @Transactional(propagation = Propagation.MANDATORY)
 trait AlertRepositoryImpl extends AlertRepository with JpaRepository[Alert, UUID] {
   override def add(alert: Alert): Alert = save(alert)
-  override def update(alert: Alert): Alert = save(alert)
   override def list(pageable: Pageable): Page[Alert] = findAll(pageable)
   override def listForMeterAndLabel(meterName: String, labelPattern: String, pageable: Pageable): Page[Alert] =
     findByMeterNameAndLabelContainingIgnoreCase(meterName, labelPattern, pageable)

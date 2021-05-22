@@ -7,7 +7,6 @@ import java.time.Instant
 
 trait NotificationRepository {
   def add(notification: Notification): Notification
-  def update(notification: Notification): Notification
   def list(pageable: Pageable): Page[Notification]
   def listForMeterAndLabel(meterName: String, labelPattern: String, pageable: Pageable): Page[Notification]
   def trendForMeterAndLabel(meterName: String, label: String, startDate: Instant, endDate: Option[Instant] = None): List[Notification]

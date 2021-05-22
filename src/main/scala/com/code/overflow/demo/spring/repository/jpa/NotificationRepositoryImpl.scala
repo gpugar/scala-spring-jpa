@@ -13,9 +13,7 @@ import scala.jdk.CollectionConverters._
 
 @Transactional(propagation = Propagation.MANDATORY)
 trait NotificationRepositoryImpl extends NotificationRepository with JpaRepository[Notification, UUID] {
-
   override def add(alert: Notification): Notification = save(alert)
-  override def update(alert: Notification): Notification = save(alert)
   override def list(pageable: Pageable): Page[Notification] = findAll(pageable)
   override def listForMeterAndLabel(meterName: String, labelPattern: String, pageable: Pageable): Page[Notification] =
     findByMeterNameAndLabelContainingIgnoreCase(meterName, labelPattern, pageable)
