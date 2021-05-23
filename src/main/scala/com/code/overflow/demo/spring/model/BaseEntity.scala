@@ -9,7 +9,7 @@ import javax.persistence._
 abstract class BaseEntity extends Serializable {
   @Id
   @GeneratedValue
-  @Column(name = "\"ID\"", length = 36)
+  @Column(name = "id", length = 36)
   @Type(`type` = "uuid-char")
   var id: UUID = _
 }
