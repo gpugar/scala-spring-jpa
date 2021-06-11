@@ -10,12 +10,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.{DataJpaTest, TestEnt
 import org.springframework.test.context.TestContextManager
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.transaction.PlatformTransactionManager
-import org.springframework.transaction.annotation.Transactional
 import org.springframework.transaction.support.TransactionTemplate
 
 @RunWith(classOf[SpringRunner])
 @DataJpaTest
-@Transactional
 abstract class BaseScalaJpaTest
     extends AnyFunSpecLike
     with Matchers
